@@ -1,21 +1,21 @@
 package projeto_final_bloco_01;
 
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import projeto.model.Model;
 import projeto.model.Clientes;
 
-
 public class Menu { 
 
     public static void main(String[] args) {
-    	
-    	Clientes c2 = new Clientes(2,"Abacaxi", "Camila", 10.0f, 5.0f, 15.0f);
-    	c2.visualizar();
-    	c2.comprar(5.0f);
-    	c2.visualizar();
-    	
+        
+        Clientes c2 = new Clientes(2, "Abacaxi", "Camila", 10.0f, 5.0f, 15.0f);
+        c2.visualizar();
+        c2.comprar(5.0f);
+        c2.visualizar();
+        
         Scanner leia = new Scanner(System.in);
-
         int opcao;
 
         while (true) {
@@ -35,8 +35,14 @@ public class Menu {
             System.out.println("-----------------------------------------------");
             System.out.println("Entre com a opção desejada:                    ");
             System.out.println("                                               ");
-
-            opcao = leia.nextInt();
+            
+            try {
+                opcao = leia.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("\nDigite valores inteiros!");
+                leia.nextLine(); 
+                opcao = 0;
+            }
 
             if (opcao == 6) {
                 System.out.println("\nObrigada pela preferência");
@@ -46,23 +52,42 @@ public class Menu {
             }
 
             switch (opcao) {
-                case 1:
-                    System.out.println("\nRealizar cadastro\n");
-                    break;
+            case 1:
+                System.out.println("\nRealizar cadastro\n");
+
+                System.out.println("Digite o Nome do Cliente: ");
+                leia.skip("\\R");
+                String cliente1 = leia.nextLine();
+
+                System.out.println("Digite o produto desejado: ");
+                String produto = leia.nextLine();
+
+                System.out.println("Digite o preço do produto (R$): ");
+                float preco = leia.nextFloat();
+                
+                System.out.println("Cliente criado com sucesso ");
+
+                keyPress();
+                break;
                 case 2:
                     System.out.println("\nBuscar cadastro por ID\n");
+                    keyPress();
                     break;
                 case 3:
                     System.out.println("\nAtualizar cadastro\n");
+                    keyPress();
                     break;
                 case 4:
                     System.out.println("\nApagar cadastro\n");
+                    keyPress();
                     break;
                 case 5:
-                    System.out.println("\n Realizar compra\n");
+                    System.out.println("\nRealizar compra\n");
+                    keyPress();
                     break;
                 default:
                     System.out.println("\nOpção Inválida!\n");
+                    keyPress();
                     break;
             }
         }
@@ -74,4 +99,14 @@ public class Menu {
         System.out.println("Bruna Bosco - BrunaB@genstudents.org");
         System.out.println("---------------------------------------------");
     }
+    
+    private static void keyPress() {
+        System.out.println("\n\nPressione Enter para Continuar...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            System.out.println("Você pressionou uma tecla diferente de enter!");
+        }
+    }
 }
+
