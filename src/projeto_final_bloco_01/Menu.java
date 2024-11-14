@@ -1,11 +1,19 @@
 package projeto_final_bloco_01;
 
 import java.util.Scanner;
+import projeto.model.Model;
+import projeto.model.Clientes;
+
 
 public class Menu { 
 
     public static void main(String[] args) {
-
+    	
+    	Clientes c2 = new Clientes(2,"Abacaxi", "Camila", 10.0f, 5.0f, 15.0f);
+    	c2.visualizar();
+    	c2.comprar(5.0f);
+    	c2.visualizar();
+    	
         Scanner leia = new Scanner(System.in);
 
         int opcao;
@@ -39,22 +47,22 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Realizar cadastro \\n\\n");
+                    System.out.println("\nRealizar cadastro\n");
                     break;
                 case 2:
-                    System.out.println("Buscar cadastro por ID \\n\\n");
+                    System.out.println("\nBuscar cadastro por ID\n");
                     break;
                 case 3:
-                    System.out.println("Atualizar cadastro \\n\\n");
+                    System.out.println("\nAtualizar cadastro\n");
                     break;
                 case 4:
-                    System.out.println("Apagar cadastro \\n\\n");
+                    System.out.println("\nApagar cadastro\n");
                     break;
                 case 5:
-                    System.out.println("Realizar compra \\n\\n");
+                    System.out.println("\n Realizar compra\n");
                     break;
                 default:
-                    System.out.println("\\nOpção Inválida!\\n");
+                    System.out.println("\nOpção Inválida!\n");
                     break;
             }
         }
