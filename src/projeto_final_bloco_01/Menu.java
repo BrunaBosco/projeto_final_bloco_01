@@ -10,11 +10,6 @@ public class Menu {
 
     public static void main(String[] args) {
         
-        Clientes c2 = new Clientes(2, "Abacaxi", "Camila", 10.0f, 5.0f, 15.0f);
-        c2.visualizar();
-        c2.comprar(5.0f);
-        c2.visualizar();
-        
         Scanner leia = new Scanner(System.in);
         int opcao;
 
