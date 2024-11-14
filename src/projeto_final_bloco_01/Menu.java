@@ -2,7 +2,7 @@ package projeto_final_bloco_01;
 
 import java.util.Scanner;
 
-public class Menu {
+public class Menu { 
 
     public static void main(String[] args) {
 
